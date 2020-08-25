@@ -23,6 +23,7 @@ const client = new tmi.client(options);
 client.connect();
 
 client.on('chat', onMessageHandler);
+client.on('connected', onConnectedHandler);
 
 function onMessageHandler(target, context, msg, self) {
   if (context.username != 'writebot_') {
@@ -48,4 +49,8 @@ function onMessageHandler(target, context, msg, self) {
       });
     });
   }
+}
+
+function onConnectedHandler(addr, port) {
+  console.log(`* Connected to ${addr}:${port}`);
 }
