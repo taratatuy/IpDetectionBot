@@ -26,7 +26,7 @@ client.on('chat', onMessageHandler);
 client.on('connected', onConnectedHandler);
 
 function onMessageHandler(target, context, msg, self) {
-  if (context.username != 'writebot_') {
+  if (context.username != BotAuthData.Username) {
     return;
   }
 
